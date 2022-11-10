@@ -1,4 +1,4 @@
-module github.com/hellokvn/go-grpc-product-svc
+module github.com/manumura/go-grpc-product-svc
 
 go 1.18
 
