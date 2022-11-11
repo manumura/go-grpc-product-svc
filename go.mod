@@ -1,6 +1,6 @@
 module github.com/manumura/go-grpc-product-svc
 
-go 1.18
+go 1.19
 
 require google.golang.org/grpc v1.45.0
 

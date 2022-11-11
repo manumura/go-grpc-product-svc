@@ -2,14 +2,16 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 
 	"github.com/manumura/go-grpc-product-svc/pkg/db"
 	"github.com/manumura/go-grpc-product-svc/pkg/models"
-	pb "github.com/manumura/go-grpc-product-svc/pkg/pb"
+	"github.com/manumura/go-grpc-product-svc/pkg/pb"
 )
 
 type Server struct {
+	pb.UnimplementedProductServiceServer
 	H db.Handler
 }
 
@@ -42,6 +44,8 @@ func (s *Server) FindOne(ctx context.Context, req *pb.FindOneRequest) (*pb.FindO
 			Error:  result.Error.Error(),
 		}, nil
 	}
+
+	fmt.Printf("Find one product result: %++v\n", product)
 
 	data := &pb.FindOneData{
 		Id:    product.Id,
